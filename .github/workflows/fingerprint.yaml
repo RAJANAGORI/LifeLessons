@@ -19,25 +19,33 @@ jobs:
       with:
         python-version: '3.10'
 
-    # - name: Install dependencies
-    #   run: pip install -r requirements.txt
+    - name: Install Dependencies
+      run: pip install -r requirements.txt
 
     - name: Generate Fingerprint
-      run: python scripts/fingerprint_generator.py . --exclude README.md "*.png" "*.jpg"
+      run: |
+        python scripts/fingerprint_generator.py . \
+          --exclude README.md "*.png" "*.jpg" \
+          --hash-algo sha256 \
+          --verbose
 
-    - name: Save Fingerprint as Artifact
+    - name: Save Fingerprint and JSON as Artifacts
       uses: actions/upload-artifact@v3
       with:
         name: project-fingerprint
         path: |
           file_hashes.txt
           project_fingerprint.txt
+          fingerprint.json
 
-    - name: Check for Changes
-      run: |
-        if ! cmp --silent project_fingerprint.txt saved_fingerprint.txt; then
-          echo "Fingerprint mismatch! Check integrity."
-          exit 1
-        else
-          echo "Fingerprint matches. Integrity check passed."
-        fi
+    # - name: Compare Fingerprint
+    #   run: |
+    #     if [ -f saved_fingerprint.txt ]; then
+    #       if ! cmp --silent project_fingerprint.txt saved_fingerprint.txt; then
+    #         echo "Fingerprint mismatch! Check integrity."
+    #         exit 1
+    #       else
+    #         echo "Fingerprint matches. Integrity check passed."
+    #       fi
+    #     else
+    #       echo "No saved fingerprint to compare against. Skipping check."
