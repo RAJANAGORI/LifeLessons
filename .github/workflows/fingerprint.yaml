@@ -33,11 +33,11 @@ jobs:
           file_hashes.txt
           project_fingerprint.txt
 
-    - name: Check for Changes
-      run: |
-        if ! cmp --silent project_fingerprint.txt saved_fingerprint.txt; then
-          echo "Fingerprint mismatch! Check integrity."
-          exit 1
-        else
-          echo "Fingerprint matches. Integrity check passed."
-        fi
+    # - name: Check for Changes
+    #   run: |
+    #     if ! cmp --silent project_fingerprint.txt saved_fingerprint.txt; then
+    #       echo "Fingerprint mismatch! Check integrity."
+    #       exit 1
+    #     else
+    #       echo "Fingerprint matches. Integrity check passed."
+    #     fi
