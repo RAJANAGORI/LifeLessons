@@ -1,0 +1,43 @@
+name: Fingerprint Check
+
+on:
+  push:
+    branches:
+      - main
+      - '**'  # Trigger on all branches
+
+jobs:
+  fingerprint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Generate Fingerprint
+      run: python scripts/fingerprint_generator.py . --exclude README.md "*.png" "*.jpg"
+
+    - name: Save Fingerprint as Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: project-fingerprint
+        path: |
+          file_hashes.txt
+          project_fingerprint.txt
+
+    - name: Check for Changes
+      run: |
+        if ! cmp --silent project_fingerprint.txt saved_fingerprint.txt; then
+          echo "Fingerprint mismatch! Check integrity."
+          exit 1
+        else
+          echo "Fingerprint matches. Integrity check passed."
+        fi
