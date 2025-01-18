@@ -25,7 +25,7 @@ jobs:
     - name: Generate Fingerprint
       run: |
         python scripts/fingerprint_generator.py . \
-          --exclude README.md "*.png" "*.jpg" \
+          --exclude README.md "*.png" "*.jpg" ".git" \
           --hash-algo sha256 \
           --verbose
 
