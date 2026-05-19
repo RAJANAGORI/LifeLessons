@@ -1,0 +1,36 @@
+# Hugo
+/public/
+/resources/
+.hugo_build.lock
+
+# Python fingerprint artifacts
+file_hashes.txt
+project_fingerprint.txt
+fingerprint.json
+
+# OS
+.DS_Store
+
+# Files I don't want to commit
+content/posts/1.md
+content/posts/2.md
+content/posts/3.md
+content/posts/4.md
+content/posts/5.md
+content/posts/6.md
+content/posts/7.md
+content/posts/8.md
+content/posts/9.md
+content/posts/10.md
+content/posts/11.md
+content/posts/12.md
+content/posts/13.md
+content/posts/14.md
+content/posts/15.md
+content/posts/16.md
+content/posts/17.md
+content/posts/18.md
+content/posts/19.md
+content/posts/20.md
+
+

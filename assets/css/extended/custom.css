@@ -1,0 +1,29 @@
+/* Devanagari + Latin: readable mixed Hindi/English */
+@import url("https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Noto+Sans+Devanagari:wght@400;600&display=swap");
+
+:root {
+  --font-family: "Literata", "Noto Sans Devanagari", Georgia, "Times New Roman", serif;
+  --entry-text: var(--primary);
+}
+
+body,
+.post-content,
+.home-info h1,
+.post-title {
+  font-family: var(--font-family);
+}
+
+.post-content {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+}
+
+.post-content p {
+  margin-bottom: 1.25em;
+}
+
+/* Slightly wider comfortable measure for poetry-style line breaks */
+.main {
+  max-width: 42rem;
+}

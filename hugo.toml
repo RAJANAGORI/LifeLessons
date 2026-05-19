@@ -1,0 +1,49 @@
+baseURL = "https://lessons.rajanagori.in/"
+languageCode = "en-us"
+title = "Life Lessons"
+theme = "PaperMod"
+
+[pagination]
+  pagerSize = 24
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[params]
+  env = "production"
+  title = "Life Lessons"
+  description = "Thoughts on life — in Hindi and English."
+  author = "Raja Nagori"
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = false
+  ShowCodeCopyButtons = false
+  ShowToc = false
+  hideMeta = false
+  hideSummary = false
+  ShowAllPagesInArchive = true
+
+  [params.homeInfoParams]
+    Title = "Life Lessons"
+    Content = "Words on life, growth, faith, and everything in between — mostly in Hindi, sometimes in English."
+
+[[menu.main]]
+  identifier = "posts"
+  name = "Posts"
+  url = "/posts/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "archives"
+  name = "Archive"
+  url = "/archives/"
+  weight = 20
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[markup.goldmark.extensions]
+  [markup.goldmark.extensions.passthrough]
+    enable = false
