@@ -2,6 +2,7 @@ baseURL = "https://lessons.rajanagori.in/"
 languageCode = "en-us"
 title = "Life Lessons"
 theme = "PaperMod"
+buildFuture = true
 
 [pagination]
   pagerSize = 24
