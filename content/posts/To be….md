@@ -1,5 +1,8 @@
-# To be...
-
+---
+title: "To be..."
+date: 2026-09-28T12:00:00+00:00
+draft: false
+---
 
 What is happening to the world?
 Someone is trying hard to contact you, and there is no reply.
